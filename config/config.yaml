@@ -1,0 +1,29 @@
+# ==========================================
+# Configuración Centralizada - Temporal RAG
+# ==========================================
+
+data:
+  dataset_name: "ambient_temperature_system_failure"
+  data_path: "data/ambient_temperature_system_failure.csv"
+  window_size: 64         # Tamaño de la ventana de la serie temporal
+  stride: 1               # Salto entre ventanas
+  batch_size: 32
+  train_split: 0.8        # 80% entrenamiento, 20% prueba
+
+embeddings:
+  model_type: "LSTM"      # Puedes cambiarlo a "Transformer" cuando hagas esas pruebas
+  input_dim: 1            # Una sola variable (temperatura)
+  hidden_dim: 128
+  embedding_dim: 64       # Tamaño del vector final que irá a FAISS
+  learning_rate: 0.001
+  epochs: 50
+
+retrieval:
+  index_type: "FAISS"
+  metric: "L2"            # Distancia euclidiana (o usar "Cosine")
+  top_k: 5                # Número de secuencias históricas similares a recuperar para el contexto
+
+llm:
+  model_name: "llama-3-8b" # O el LLM que decidas acoplar (Mistral, GPT, etc.)
+  temperature: 0.1         # Baja para respuestas más deterministas y analíticas
+  max_tokens: 512
