@@ -2,7 +2,7 @@
 
 **Trabajo de Fin de Máster — Máster en Ciencia de Datos**  
 **Autor:** Arturo Miguel Espinal Reyes  
-**Director:** Julio Emilio Sandubete Galán  
+**Tutor:** Julio Emilio Sandubete Galán  
 **Universidad:** Madrid, 2026
 
 ---
